@@ -1,0 +1,100 @@
+﻿<ul class="nav nav-steps">
+    <li ng-class="{'active' : settings.step == 'structure'}"><a href="" ng-click="changeStep('structure')">Struktur</a></li>
+    <li ng-class="{'active' : settings.step == 'style'}"><a href="" ng-click="changeStep('style')">Stil</a></li>
+    <li ng-class="{'active' : settings.step == 'system'}"><a href="" ng-click="changeStep('system')">System</a></li>
+    <li ng-class="{'active' : settings.step == 'save'}"><a href="" ng-click="changeStep('save')">Spara</a></li>
+</ul>
+<form class="container controls" ng-submit="saveTest()" ng-switch="settings.step">
+    <table ng-switch-when="structure">
+        <tr>
+            <td>Placering</td>
+            <td>
+                <input bs-switch type="checkbox" ng-model="settings.placement" ng-true-value="'sidebar-right'" ng-false-value="'sidebar-left'" switch-size="mini" switch-on-text="Höger" switch-off-text="Vänster" switch-on-color="primary" switch-off-color="primary" switch-label-width="16" />
+            </td>
+        </tr>
+        <tr>
+            <td>Justering</td>
+            <td class="btn-group btn-group-xs">
+                <label class="btn btn-default" ng-model="settings.justification" btn-radio="'text-left'">Vänster</label>
+                <label class="btn btn-default" ng-model="settings.justification" btn-radio="'text-center'">Centrerat</label>
+                <label class="btn btn-default" ng-model="settings.justification" btn-radio="'text-right'">Höger</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Ikonisering</td>
+            <td class="btn-group btn-group-xs">
+                <label class="btn btn-default" ng-model="settings.iconization" btn-radio="'sidebar-text-only'">Text</label>
+                <label class="btn btn-default" ng-model="settings.iconization" btn-radio="'sidebar-icon-only'">Ikon</label>
+                <label class="btn btn-default" ng-model="settings.iconization" btn-radio="'sidebar-text-icon'">Text & Ikon</label>
+            </td>
+        </tr>
+    </table>
+    <table ng-switch-when="style">
+        <tr>
+            <td>Borttoning</td>
+            <td>
+                <input type="range" ng-model="settings.overlay" min=0 max=100 step=10 />
+            </td>
+        </tr>
+        <tr>
+            <td>Urfokus</td>
+            <td>
+                <input type="range" ng-model="settings.blur" min=0 max=5 step=0.5 />
+            </td>
+        </tr>
+        <tr>
+            <td>Altitud</td>
+            <td class="btn-group btn-group-xs">
+                <label class="btn btn-default" ng-model="settings.altitude" btn-radio="'sidebar-under'" ng-change="changeAltitude()">Under</label>
+                <label class="btn btn-default" ng-model="settings.altitude" btn-radio="'sidebar-equal'" ng-change="changeAltitude()">Jämt</label>
+                <label class="btn btn-default" ng-model="settings.altitude" btn-radio="'sidebar-over'" ng-change="changeAltitude()">Över</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Kanteffekt</td>
+            <td class="btn-group btn-group-xs">
+                <label class="btn btn-default" ng-model="settings.fade" btn-checkbox>Toning</label>
+                <label class="btn btn-default" ng-model="settings.scrollbar" btn-checkbox>Scrollbar</label>
+            </td>
+        </tr>
+    </table>
+    <table ng-switch-when="system">
+        <tr>
+            <td>Animering</td>
+            <td class="btn-group btn-group-xs">
+                <label class="btn btn-default" ng-model="settings.animation" btn-radio="'anim-reveal'" ng-disabled="settings.altitude === 'sidebar-over'">Avslöja</label>
+                <label class="btn btn-default" ng-model="settings.animation" btn-radio="'anim-push'">Putta</label>
+                <label class="btn btn-default" ng-model="settings.animation" btn-radio="'anim-cover'" ng-disabled="settings.altitude === 'sidebar-under'">Täcka</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Effekttid</td>
+            <td>
+                <input type="range" ng-model="settings.animationtime" min=0 max=1.5 step=0.1 />
+            </td>
+        </tr>
+        <tr>
+            <td>Gester</td>
+            <td>
+                <input bs-switch type="checkbox" ng-model="settings.gestures" switch-size="mini" switch-on-text="På" switch-off-text="Av" switch-label-width="16" />
+            </td>
+        </tr>
+        <tr>
+            <td>Scroll</td>
+            <td>
+                <input bs-switch type="checkbox" ng-model="settings.locked" ng-true-value="'content-locked'" ng-false-value="'content-unlocked'" switch-size="mini" switch-on-text="Låst" switch-off-text="Olåst" switch-label-width="16" />
+            </td>
+        </tr>
+    </table>
+    <table ng-switch-when="save">
+        <tr>
+            <td>Administration<br />ID: {{settings.id}}</td>
+            <td>
+                <button type="reset" class="btn btn-sm btn-danger" ng-click="resetSettings()">Nytt Test</button>
+            </td>
+            <td>
+                <button type="submit" class="btn btn-sm btn-success">Spara Test</button>
+            </td>
+        </tr>
+    </table>
+</form>

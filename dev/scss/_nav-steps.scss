@@ -1,0 +1,143 @@
+.nav-steps {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.nav-steps > li {
+    -webkit-flex: auto;
+    flex: auto;
+}
+
+.nav-steps > li > a {
+    position: relative;
+    background-color: #eeeeee;
+    padding: 2px 8px;
+    text-align: center;
+}
+
+.nav-steps > li > a .badge {
+    margin-left: 3px;
+    color: #eeeeee;
+    background-color: #428bca;
+}
+
+.nav-steps > li:not(:first-child) > a {
+    padding-left: 24px;
+}
+
+.nav-steps > li:not(:first-child) > a:before {
+    width: 0px;
+    height: 0px;
+    border-top: 12px inset transparent;
+    border-bottom: 12px inset transparent;
+    border-left: 12px solid #ffffff;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+}
+
+.nav-steps > li:not(:last-child) > a {
+    margin-right: 4px;
+}
+
+.nav-steps > li:not(:last-child) > a:after {
+    width: 0px;
+    height: 0px;
+    border-top: 12px inset transparent;
+    border-bottom: 12px inset transparent;
+    border-left: 12px solid #eeeeee;
+    position: absolute;
+    content: "";
+    top: 0;
+    right: -12px;
+    z-index: 2;
+}
+
+.nav-steps > li:first-child > a {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.nav-steps > li:last-child > a {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.nav-steps > li.done:hover > a,
+.nav-steps > li:hover > a {
+    background-color: #d5d5d5;
+}
+
+.nav-steps > li.done:hover > a:before,
+.nav-steps > li:hover > a:before {
+    border-right-color: #d5d5d5;
+}
+
+.nav-steps > li.done:hover > a:after,
+.nav-steps > li:hover > a:after {
+    border-left-color: #d5d5d5;
+}
+
+.nav-steps > li.done > a {
+    background-color: #e2e2e2;
+}
+
+.nav-steps > li.done > a:before {
+    border-right-color: #e2e2e2;
+}
+
+.nav-steps > li.done > a:after {
+    border-left-color: #e2e2e2;
+}
+
+.nav-steps > li.active > a,
+.nav-steps > li.active > a:hover,
+.nav-steps > li.active > a:focus {
+    color: #ffffff;
+    background-color: #428bca;
+}
+
+.nav-steps > li.active > a:after {
+    border-left-color: #428bca;
+}
+
+.nav-steps > li.active > a .badge {
+    color: #428bca;
+    background-color: #ffffff;
+}
+
+.nav-steps > li.disabled > a {
+    color: #777777;
+}
+
+.nav-steps > li.disabled > a:hover,
+.nav-steps > li.disabled > a:focus {
+    color: #777777;
+    text-decoration: none;
+    background-color: #eeeeee;
+    cursor: default;
+}
+
+.nav-steps > li.disabled > a:before {
+    border-right-color: #eeeeee;
+}
+
+.nav-steps > li.disabled > a:after {
+    border-left-color: #eeeeee;
+}
+
+.nav-steps.nav-justified > li {
+    float: none;
+}
+
+@media (max-width: 768px) {
+    .nav-steps.nav-justified > li > a {
+        border-radius: 4px;
+        margin-right: 0;
+    }
+    .nav-steps.nav-justified > li > a:before,
+    .nav-steps.nav-justified > li > a:after {
+        border: none !important;
+    }
+}

@@ -1,0 +1,25 @@
+// Media queries breakpoints
+$screen-sm-min: 768px !default;
+$screen-md-min: 992px !default;
+$screen-lg-min: 1200px !default;
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;
+
+// UI Sizes
+$header-height: 40px;
+$header-height-sm: 64px;
+
+$sidebar-width: 240px;
+
+$footer-height: 80px;
+$footer-height-sm: 40px;
+
+// Colors
+$color-first: #615A78;
+$color-second: #E1E1C9;
+$color-third: #FFFEE7;
+$color-fourth: #FFFEFA;
+
+$color-white: #FFF;
+$color-grey: #CCC;

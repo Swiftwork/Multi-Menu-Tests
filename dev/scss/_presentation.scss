@@ -1,0 +1,97 @@
+.presentation {
+    background-color: $color-third;
+    a {
+        color: $color-first;
+    }
+    .navbar {
+        background-color: $color-first;
+        border: none;
+    }
+    .sidebar-pusher {
+        background-color: $color-third;
+        z-index: 2;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    &.sidebar-closed {
+        .sidebar-pusher {
+            -webkit-filter: none !important;
+            filter: none !important;
+        }
+    }
+    .sidebar {
+        background-color: $color-fourth;
+        overflow-y: overlay;
+        &::-webkit-scrollbar {
+            visibility: hidden;
+        }
+        &.edge-fade {
+            background:
+            /* Hide Shadows */
+            
+            linear-gradient($color-fourth 30%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), $color-fourth 70%) 0 100%,
+            /* Shadows */
+            
+            radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)) 0 100%;
+            background-color: $color-fourth;
+            background-repeat: no-repeat;
+            background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+            background-attachment: local, local, scroll, scroll;
+        }
+        &.edge-scroll {
+            &::-webkit-scrollbar {
+                visibility: visible;
+                -webkit-appearance: none;
+                width: 12px;
+            }
+            &::-webkit-scrollbar-thumb {
+                border: 3px solid rgba(0, 0, 0, 0);
+                background-clip: padding-box;
+                -webkit-border-radius: 6px;
+                background-color: rgba(0, 0, 0, .15);
+                box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+            }
+        }
+    }
+    &.sidebar-right {
+        &.sidebar-under .sidebar {
+            z-index: 1;
+        }
+        &.sidebar-equal {
+            .sidebar-pusher {
+                box-shadow: none;
+            }
+            .sidebar {
+                border-left: 1px solid #ccc;
+            }
+        }
+        &.sidebar-over .sidebar {
+            z-index: 3;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    }
+    &.sidebar-left {
+        &.sidebar-under .sidebar {
+            z-index: 1;
+        }
+        &.sidebar-equal {
+            .sidebar-pusher {
+                box-shadow: none;
+            }
+            .sidebar {
+                border-right: 1px solid #ccc;
+            }
+        }
+        &.sidebar-over .sidebar {
+            z-index: 3;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    }
+    .sidebar-brand {
+        color: $color-first;
+    }
+    .footer {
+        background-color: $color-white;
+        border-top: 1px solid $color-grey;
+        z-index: 1000;
+    }
+}

@@ -1,0 +1,112 @@
+/* Imports */
+
+@import "bootstrap";
+@import "mixins";
+@import "variables";
+@import "font-blokk";
+/* Components */
+
+@import "switch";
+@import "slider";
+@import "nav-steps";
+/* General */
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100%;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+/* Navbar */
+
+.navbar-default .navbar-brand {
+    color: $color-fourth;
+    &:focus {
+        color: $color-fourth;
+    }
+}
+
+.navbar-default .navbar-toggle {
+    float: left;
+    margin: 8px 15px;
+    border: none;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFFEFA;
+}
+/* Pushers */
+
+.header-pusher {
+    padding-top: $header-height + 10px;
+    // Top padding for sticky header (height + 10px margin)
+    /* None Mobile */
+    
+    @media (min-width: $screen-sm-min) {
+        padding-top: $header-height-sm + 20px;
+    }
+}
+
+.footer-pusher {
+    padding-bottom: $footer-height;
+    /* Bottom margin for sticky footer (height) */
+    /* None Mobile */
+    
+    @media (min-width: $screen-sm-min) {
+        padding-bottom: $footer-height-sm;
+        /* Bottom padding for sticky footer (height) */
+    }
+}
+/* Footer */
+
+.footer {
+    background-color: #fff;
+    padding: 10px;
+    height: $footer-height;
+    /* None Mobile */
+    
+    @media (min-width: $screen-sm-min) {
+        height: $footer-height-sm;
+    }
+}
+
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+/* Forms */
+
+.footer .controls > table {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.footer .controls td {
+    padding: 4px 6px;
+}
+
+.footer .controls td:first-child {
+    width: 1px;
+    white-space: nowrap;
+}
+/* Sidebar (!important) */
+
+@import "sidebar";
+/* Themes */
+
+@import "wireframe";
+@import "presentation";
+@import "animation";

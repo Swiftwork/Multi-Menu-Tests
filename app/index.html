@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MultiMenu">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MultiMenu</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="img/icon-highres.png">
+    <!-- Font Stack -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700,900' rel='stylesheet' type='text/css'>
+    <!-- CSS Library Stack -->
+    <link rel="stylesheet" href="assets/css/multimenu-lib.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-controller="MultiMenuController" ng-class="[settings.style, settings.placement, settings.toggle, settings.altitude, settings.animation, settings.locked]">
+    <!-- Sidebar Menu -->
+    <nav class="sidebar" ng-include="'includes/sidebar.html'" ng-style="{'margin-bottom' : footerPadding + 'px', '-webkit-transition-duration' : settings.animationtime + 's'}" ng-class="{'edge-fade': settings.fade, 'edge-scroll': settings.scrollbar}"></nav>
+    <!-- Content -->
+    <div class="sidebar-pusher" ng-style="{webkitFilter: 'brightness(' + (100 - settings.overlay) + '%) blur(' + settings.blur + 'px)', 'padding-bottom' : footerPadding + 'px', webkitTransitionDuration : settings.animationtime + 's'}"
+    ng-click="settings.toggle = 'sidebar-closed'" ng-swipe-left="changeSwipe('left')" ng-swipe-right="changeSwipe('right')" ng-swipe-disable-mouse>
+        <!-- Site Header -->
+        <header class="navbar navbar-default" ng-include="'includes/header.html'"></header>
+        <!-- Main Content -->
+        <div class="container">
+            <h2>Välkommen till testet!</h2>
+            <p>
+                Din uppgift är att utforma menyn presenterad framför dig utifrån dina egna preferenser och din stil. Till hjälp har du kontrollerna längst ner på skärmen. Målet är att du designar en lösning som passar dig, men är lätt att använda för de flesta individer.
+            </p>
+            <h3>Extra innehåll (ignorera)</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin egestas dolor, nec ultrices sapien hendrerit a. Cras turpis ligula, efficitur nec odio ac, tempor cursus massa.
+            </p>
+            <p>
+                Curabitur vulputate sapien sem, ultricies elementum augue rhoncus nec. Aliquam orci lacus, volutpat eu erat ut, maximus fringilla nunc.
+            </p>
+            <p>
+                Vivamus ut velit a nibh dignissim efficitur nec nec risus. Suspendisse potenti. Quisque tincidunt, purus at mollis auctor, nulla ipsum ornare metus, eget auctor lectus orci in mi. Suspendisse erat sapien, finibus et urna a, elementum ullamcorper lorem.
+            </p>
+            <p>
+                Duis tincidunt dui non vulputate porttitor. Duis accumsan urna at sem aliquam, non tempus tortor volutpat. Maecenas nisl enim, euismod ac dapibus sed, vestibulum at elit. Aliquam non quam erat.
+            </p>
+            <p>
+                Praesent auctor purus ac aliquam fermentum. Nam scelerisque faucibus est vel consectetur. Maecenas at diam massa.
+            </p>
+        </div>
+    </div>
+    <!-- Site Footer -->
+    <footer class="footer footer-fixed" ng-include="'includes/footer.html'"></footer>
+    <!-- JavaScript Library Stack -->
+    <script src="//wurfl.io/wurfl.js"></script>
+    <script src="assets/js/multimenu-lib.min.js"></script>
+    <!-- Main JavaScript Stack -->
+    <script src="app.js"></script>
+</body>
+
+</html>

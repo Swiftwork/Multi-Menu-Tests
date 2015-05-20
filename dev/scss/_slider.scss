@@ -1,0 +1,24 @@
+/* Compontents */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    height: 6px;
+    vertical-align: middle;
+    outline: none;
+    background: #e5e5e5;
+    
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: -webkit-radial-gradient(center, ellipse cover, rgba(0,130,229,1) 0%, rgba(0,130,229,1) 25%, rgba(0,130,229,0.1) 25%, rgba(0,130,229,0.1) 100%);
+        background: radial-gradient(center, ellipse cover, rgba(0,130,229,1) 0%, rgba(0,130,229,1) 25%, rgba(0,130,229,0.1) 25%, rgba(0,130,229,0.1) 100%);
+
+        border: 1px solid rgba(0,130,229,1);
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+}
