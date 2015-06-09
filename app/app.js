@@ -4,44 +4,6 @@
     /* CONSTRUCTOR */
     var app = angular.module('MultiMenu', ['ui.bootstrap', 'ui.router', 'ngTouch', 'ngStorage', 'frapontillo.bootstrap-switch']);
 
-    /* CONFIG */
-    app.config(function($stateProvider, $controllerProvider, $compileProvider,
-        $filterProvider, $provide, $urlRouterProvider) {
-
-        /* Lazy Loading */
-        app.register = {
-            controller: $controllerProvider.register,
-            directive: $compileProvider.directive,
-            filter: $filterProvider.register,
-            factory: $provide.factory,
-            service: $provide.service,
-        };
-
-        /* Routing */
-        $stateProvider
-            .state('premium sales', {
-                url: '/sales/premium',
-                templateUrl: 'app/components/sales/premium.html',
-                controller: 'premiumSalesController',
-                resolve: {
-                    controller: ['$q', function($q) {
-                        return load($q, 'app/components/sales/premium.js');
-                    }],
-                },
-                params: {}
-            });
-        $urlRouterProvider.otherwise('/');
-    });
-
-    /* LAZY LOADER */
-    function load($q, path) {
-        var defer = $q.defer();
-        return $.getScript(path, function() {
-            defer.resolve();
-            return defer.promise;
-        });
-    }
-
     /* MAIN CONTROLLER */
     app.controller('MultiMenuController', function($scope, $state, $timeout, $localStorage, $http) {
         var timeout = 200;
